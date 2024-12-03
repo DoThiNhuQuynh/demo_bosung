@@ -109,6 +109,7 @@ namespace Lap01
             this.btnNhan.TabIndex = 6;
             this.btnNhan.Text = "*";
             this.btnNhan.UseVisualStyleBackColor = true;
+            this.btnNhan.Click += new System.EventHandler(this.btnNhan_Click);
             // 
             // btnChia
             // 
@@ -119,6 +120,7 @@ namespace Lap01
             this.btnChia.TabIndex = 7;
             this.btnChia.Text = "/";
             this.btnChia.UseVisualStyleBackColor = true;
+            this.btnChia.Click += new System.EventHandler(this.btnChia_Click);
             // 
             // label3
             // 
@@ -225,6 +227,36 @@ namespace Lap01
                 float num1 = float.Parse(txtNum1.Text);
                 float num2 = float.Parse(txtNum2.Text);
                 txtAnswer.Text = (num1 - num2).ToString();
+            }
+
+        }
+
+        private void btnNhan_Click(object sender, EventArgs e)
+        {
+            if (checkRong() && checkPare())
+            {
+                float num1 = float.Parse(txtNum1.Text);
+                float num2 = float.Parse(txtNum2.Text);
+                txtAnswer.Text = (num1 * num2).ToString();
+            }
+
+        }
+
+        private void btnChia_Click(object sender, EventArgs e)
+        {
+            if (checkRong() && checkPare())
+            {
+                float num1 = float.Parse(txtNum1.Text);
+                float num2 = float.Parse(txtNum2.Text);
+                if (num2 == 0)
+                {
+                    MessageBox.Show("Vui lòng nhập số bị chia khác 0", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    txtAnswer.Text = (num1 / num2).ToString();
+                }
+
             }
 
         }
